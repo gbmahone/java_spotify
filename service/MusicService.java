@@ -9,6 +9,7 @@ public class MusicService {
     public Music createMusic(){
         Music music = new Music();
         //cadastrar
+
         return music;
     }
 }
