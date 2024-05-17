@@ -20,7 +20,7 @@ public class Main {
         System.out.println("01 - Cadastrar Musica");
         System.out.println("02 - Cadastrar Artista");
         System.out.println("03 - Cadastrar Album");
-        System.out.println("04 - Criar playlist");
+        System.out.println("04 - Criar sua playlist");
         System.out.printf("Digite o numero da opção desejada: ");
         int opcao = sc.nextInt();
         switch (opcao){
