@@ -2,8 +2,16 @@ package Spotify.model;
 
 public class Music {
 
+
     private String name;
     private int duration;
+
+    public Music() {}
+
+    public Music(String name, int duration){
+        this.name = name;
+        this.duration = duration;
+    }
 
     public void setName(String name){
         this.name = name;
@@ -19,5 +27,10 @@ public class Music {
 
     public int getDuration() {
         return duration;
+    }
+
+    @Override
+    public String toString() {
+        return this.name;
     }
 }

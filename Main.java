@@ -3,6 +3,7 @@ package Spotify;
 import Spotify.model.Album;
 import Spotify.model.Artist;
 import Spotify.model.Music;
+import Spotify.service.ArtistService;
 import Spotify.service.MusicService;
 
 import java.util.ArrayList;
@@ -15,36 +16,40 @@ public class Main {
     }
 
     public static void main(String[] args) {
-        List<Music> musics = new ArrayList<Music>();
-        MusicService musicService = new MusicService();
+        List<Artist> artistList = new ArrayList<>();
+        ArtistService artistService = new ArtistService();
+        int opcao = 0;
 
         Scanner sc = new Scanner(System.in);
-
-        System.out.println("MENU:");
-        System.out.println("01 - Cadastrar Musica");
-        System.out.println("02 - Cadastrar Artista");
-        System.out.println("03 - Cadastrar Album");
-        System.out.println("04 - Criar sua playlist");
-        System.out.printf("Digite o numero da opção desejada: ");
-        int opcao = sc.nextInt();
-        switch (opcao){
-            case 1:
-                System.out.println("Opção 01");
-                Music music = musicService.createMusic();
-                System.out.println("New Music: " + music.toString());
-                musics.add(music);
-                break;
-            case 2:
-                System.out.println("Opção 02");
-                break;
-            case 3:
-                System.out.println("Opção 03");
-                break;
-            case 4:
-                System.out.println("Opção 04");
-                break;
-            default:
-                System.out.println("Opção inválida");
+        while(opcao != 5) {
+            System.out.println("MENU:");
+            System.out.println("01 - Cadastrar Artista");
+            System.out.println("02 - Criar playlis");
+            System.out.println("03 - Tocar Musica");
+            System.out.println("04 - Tocar Album");
+            System.out.println("05 - Sair");
+            System.out.printf("Digite o numero da opção desejada: ");
+            opcao = sc.nextInt();
+            switch (opcao) {
+                case 1:
+                    System.out.println("Opção 01");
+                    Artist artist = artistService.createArtist();
+                    artistList.add(artist);
+                    break;
+                case 2:
+                    System.out.println("Opção 02");
+                    break;
+                case 3:
+                    System.out.println("Opção 03");
+                    break;
+                case 4:
+                    System.out.println("Opção 04");
+                    break;
+                case 5:
+                    break;
+                default:
+                    System.out.println("Opção inválida");
+            }
         }
     }
 }

@@ -3,6 +3,8 @@ package Spotify.model;
 import java.util.List;
 
 public class Artist {
+
+    public Artist() {}
     private String name;
 
     private List<Album> albumList;
