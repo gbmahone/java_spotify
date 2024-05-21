@@ -1,10 +1,8 @@
 package Spotify;
 
-import Spotify.model.Album;
 import Spotify.model.Artist;
-import Spotify.model.Music;
 import Spotify.service.ArtistService;
-import Spotify.service.MusicService;
+import Spotify.util.UiUtils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -17,11 +15,13 @@ public class Main {
 
     public static void main(String[] args) {
         List<Artist> artistList = new ArrayList<>();
-        ArtistService artistService = new ArtistService();
+        Scanner sc = new Scanner(System.in);
+        ArtistService artistService = new ArtistService(sc);
         int opcao = 0;
 
-        Scanner sc = new Scanner(System.in);
+
         while(opcao != 5) {
+            UiUtils.clearScreen();
             System.out.println("MENU:");
             System.out.println("01 - Cadastrar Artista");
             System.out.println("02 - Criar playlis");
@@ -30,6 +30,7 @@ public class Main {
             System.out.println("05 - Sair");
             System.out.printf("Digite o numero da opção desejada: ");
             opcao = sc.nextInt();
+            sc.nextLine();
             switch (opcao) {
                 case 1:
                     System.out.println("Opção 01");
