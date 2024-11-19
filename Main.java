@@ -1,7 +1,9 @@
 package Spotify;
 
 import Spotify.model.Artist;
+import Spotify.model.Playlist;
 import Spotify.service.ArtistService;
+import Spotify.service.PlaylistService;
 import Spotify.util.UiUtils;
 
 import java.util.ArrayList;
@@ -17,6 +19,8 @@ public class Main {
         List<Artist> artistList = new ArrayList<>();
         Scanner sc = new Scanner(System.in);
         ArtistService artistService = new ArtistService(sc);
+        List<Playlist> playlistList = new ArrayList<>();
+        PlaylistService playlistService = new PlaylistService(sc);
         int opcao = 0;
 
 
@@ -24,10 +28,12 @@ public class Main {
             UiUtils.clearScreen();
             System.out.println("MENU:");
             System.out.println("01 - Cadastrar Artista");
-            System.out.println("02 - Criar playlis");
+            System.out.println("02 - Criar playlist");
             System.out.println("03 - Tocar Musica");
             System.out.println("04 - Tocar Album");
-            System.out.println("05 - Sair");
+            System.out.println("05 - Tocar Playlist");
+            System.out.println("06 - Exibir artistas cadastrados");
+            System.out.println("07 - Sair");
             System.out.printf("Digite o numero da opção desejada: ");
             opcao = sc.nextInt();
             sc.nextLine();
@@ -39,6 +45,8 @@ public class Main {
                     break;
                 case 2:
                     System.out.println("Opção 02");
+                    Playlist playlist = playlistService.createPlaylist();
+                    playlistList.add(playlist);
                     break;
                 case 3:
                     System.out.println("Opção 03");
@@ -47,6 +55,18 @@ public class Main {
                     System.out.println("Opção 04");
                     break;
                 case 5:
+                    System.out.println("Opção 05");
+                    for (Playlist playlistToShow : playlistList) {
+                        System.out.println(playlistToShow.toString());
+                    }
+                    break;
+                case 6:
+                    System.out.println("Opção 06");
+                    for (Artist artistToShow : artistList) {
+                        System.out.println(artistToShow.toString());
+                    }
+                    break;
+                case 7:
                     break;
                 default:
                     System.out.println("Opção inválida");

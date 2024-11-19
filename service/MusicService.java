@@ -15,13 +15,21 @@ public class MusicService {
         this.sc = scanner;
     }
 
-    public Music createMusic(String albumName){
+    public Music createMusic(String musicToName){
         UiUtils.clearScreen();
         Music music = new Music();
-        System.out.println("ADICIONAR MUSICA PARA O ALBUM " + albumName.toUpperCase());
+        System.out.println("ADICIONAR MUSICA PARA " + musicToName.toUpperCase());
         System.out.printf("Informe o nome da musica: ");
         String name = sc.nextLine();
         music.setName(name);
+        System.out.println("Essa música para maiores de 18 anos?(s/n) ");
+        String control = sc.nextLine();
+        if (control.toLowerCase() == "s"){
+            music.setParentalControl(true);
+        } else {
+            music.setParentalControl(false);
+        }
+
         return music;
     }
 

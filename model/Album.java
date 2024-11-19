@@ -23,8 +23,14 @@ public class Album {
         return this.artist;
     }
 
+    @Override
     public String toString(){
-        return this.name + " - " + this.artist.getName();
+        String albumString = "Album: " + this.name;
+        for (Music music : musicList){
+            albumString = albumString.concat("\n");
+            albumString = albumString.concat("      " + music.toString());
+        }
+        return albumString;
     }
 
     public void setMusicList(List<Music> musicList) {
@@ -34,4 +40,5 @@ public class Album {
     public List<Music> getMusicList() {
         return this.musicList;
     }
+
 }

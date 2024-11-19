@@ -21,4 +21,14 @@ public class Playlist {
     public String getName() {
         return name;
     }
+    @Override
+    public String toString() {
+        String playlistString = "Playlist: " + this.name;
+        for (Music playlist : musicList) {
+            playlistString = playlistString.concat("\n");
+            playlistString = playlistString.concat("   " + playlist.toString());
+        }
+        return playlistString;
+    }
+
 }

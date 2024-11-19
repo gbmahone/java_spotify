@@ -4,7 +4,10 @@ public class Music {
 
 
     private String name;
+
     private int duration;
+
+    private boolean parentalControl;
 
     public Music() {}
 
@@ -32,5 +35,13 @@ public class Music {
     @Override
     public String toString() {
         return this.name;
+    }
+
+    public void setParentalControl(boolean parentalControl) {
+        this.parentalControl = parentalControl;
+    }
+
+    public boolean getParentalControl (){
+        return parentalControl;
     }
 }

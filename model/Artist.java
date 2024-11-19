@@ -24,4 +24,14 @@ public class Artist {
     public List<Album> getAlbumList() {
         return albumList;
     }
+
+    @Override
+    public String toString() {
+        String artistString = "Artista: " + this.name;
+        for (Album album : albumList) {
+            artistString = artistString.concat("\n");
+            artistString = artistString.concat("   " + album.toString());
+        }
+        return artistString;
+    }
 }
